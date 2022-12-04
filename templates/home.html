@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %} Welcome to DIU Events {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+    <div class="row">
+        <div class="col s12">
+
+        <div class="row">
+
+        </div>
+
+            {% for p in posts %}
+
+                <div class="row">
+
+                <div class="col s12 m8">
+
+                {{ p.content |truncatewords:60| safe }}
+                <div class="mt20">
+                    <a href="/home/{{ p.url }}" class="btn bg-primary">Read More</a>
+                </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <img src="/media/{{ p.image }}" alt="">
+                </div>
+
+                </div>
+            {% endfor %}
+
+        </div>
+    <div class="col s12 m4">
+        <img src="/media/{{ p.image }}" class="responsive-img" style="margin-top: 50px">
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
